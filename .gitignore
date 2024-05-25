@@ -1,0 +1,8 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/SarasaviLite/obj/Debug
+/SarasaviLite/bin/Debug
+/SarasaviLite/.vs/SarasaviLite/FileContentIndex
+/SarasaviLite/.vs/SarasaviLite/v17
