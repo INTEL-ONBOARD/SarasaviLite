@@ -1,0 +1,183 @@
+﻿<Window x:Class="SarasaviLite.dashboard"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:uc="clr-namespace:SarasaviLite.UserControls"
+        Height="780" Width="1280" AllowsTransparency="True" WindowStyle="None"
+        WindowStartupLocation="CenterScreen" Background="Transparent">
+
+
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="boolToVisConv"/>
+    </Window.Resources>
+    <Border CornerRadius="25" Padding="20" Background="#f7f6f4" MouseDown="border_MouseDown" MouseLeftButtonDown="border_MouseLeftButtonDown" >
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="220"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="260"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="120"/>
+                <RowDefinition Height="130"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!--Menu-->
+
+            <Border Grid.RowSpan="3" CornerRadius="25">
+                <Border.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Color="Blue" Offset="0"/>
+                        <GradientStop Color="LightSteelBlue" Offset="0.8"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <StackPanel>
+                    <!--Logo-->
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 30 0 10">
+                        <Grid>
+                            <Border Background="#ffffff" Width="35" Height="35" CornerRadius="50"/>
+
+                            <Border Width="35" Height="35" BorderBrush="#ffffff" BorderThickness="3" CornerRadius="50">
+                                <Border.Effect>
+                                    <DropShadowEffect BlurRadius="10" Opacity="0.3"/>
+                                </Border.Effect>
+
+                                <!--Icon-->
+                                <Icon:PackIconMaterial Kind="SendOutline" Width="14" Foreground="Blue" HorizontalAlignment="Center" Margin="0,5,0,0">
+                                    <Icon:PackIconMaterial.LayoutTransform>
+                                        <RotateTransform Angle="-45"/>
+                                    </Icon:PackIconMaterial.LayoutTransform>
+                                </Icon:PackIconMaterial>
+
+                            </Border>
+                        </Grid>
+                        <!--Title Text-->
+                        <TextBlock Text="Data" Foreground="#ffffff" FontSize="30" Margin="10 0 0 3">
+                            <TextBlock.Effect>
+                                <DropShadowEffect BlurRadius="10" Opacity="0.3"/>
+                            </TextBlock.Effect>
+                        </TextBlock>
+                    </StackPanel>
+
+                    <!--Menu Items-->
+                    <TextBlock Text="Main" Style="{StaticResource menuTitle}"/>
+
+                    <Button Style="{StaticResource menuButton}" Background="#f7f6f4" Foreground="Blue">
+                        <StackPanel Orientation="Horizontal">
+                            <Icon:PackIconMaterial Kind="Home" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Dashboard" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </Button>
+
+                    <Button Style="{StaticResource menuButton}">
+                        <StackPanel Orientation="Horizontal">
+                            <Icon:PackIconMaterial Kind="ClipboardTextPlayOutline" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Leaderboard" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Style="{StaticResource menuButton}">
+                        <StackPanel Orientation="Horizontal">
+                            <Icon:PackIconMaterial Kind="ClipboardFileOutline" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="SperedSheets" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </Button>
+
+                    <Button Style="{StaticResource menuButton}">
+                        <StackPanel Orientation="Horizontal">
+                            <Icon:PackIconMaterial Kind="AccountCheckOutline" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Administration" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </Button>
+
+                    <Button Style="{StaticResource menuButton}">
+                        <StackPanel Orientation="Horizontal">
+                            <Icon:PackIconMaterial Kind="BasketPlusOutline" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Sales" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Style="{StaticResource menuButton}">
+                        <StackPanel Orientation="Horizontal">
+                            <Icon:PackIconMaterial Kind="ProgressCheck" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Shedule" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </Button>
+
+                    <TextBlock Text="Help" Style="{StaticResource menuTitle}"/>
+
+                    <Button Style="{StaticResource menuButton}">
+                        <StackPanel Orientation="Horizontal">
+                            <Icon:PackIconMaterial Kind="MessageSettingsOutline" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Messages" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </Button>
+
+                    <Button Style="{StaticResource menuButton}">
+                        <StackPanel Orientation="Horizontal">
+                            <Icon:PackIconMaterial Kind="CogOutline" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Settings" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Style="{StaticResource menuButton}">
+                        <StackPanel Orientation="Horizontal">
+                            <Icon:PackIconMaterial Kind="PhonePausedOutline"  Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Support" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </Button>
+
+
+                </StackPanel>
+            </Border>
+
+            <!--search Section-->
+            <Border Grid.Column="1" Margin="20 0 20 20" Style="{StaticResource WhiteBorder}">
+                <Grid>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <Border Width="50" Height="50" CornerRadius="10" Margin="5 0 20 0">
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                    <GradientStop Color="Blue" Offset="0"/>
+                                    <GradientStop Color="Blue" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <Image Width="40" Height="40" Source="/images/67.png"/>
+                        </Border>
+
+                        <StackPanel VerticalAlignment="Center">
+                            <TextBlock Text="Welcome" FontSize="26" FontWeight="Bold" Style="{StaticResource TitleText}"/>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <!--Search TetBox-->
+
+                    <Grid Width="300" HorizontalAlignment="Right">
+                        <TextBlock Margin="15 0" VerticalAlignment="Center" Foreground="#868686" Panel.ZIndex="1"
+                                   Text="Search here ..." IsHitTestVisible="False"
+                                   Visibility="{Binding ElementName=textBoxSearch,Path=Text.IsEmpty,Converter={StaticResource boolToVisConv}}"/>
+
+                        <TextBox x:Name="textBoxSearch" Style="{StaticResource searchTextBox}"/>
+
+                        <Icon:PackIconMaterial Kind="Magnify" Width="15" Height="15" Foreground="LightSteelBlue" Margin="0 0 15 0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    </Grid>
+                </Grid>
+
+            </Border>
+
+            <!--Info Card-->
+
+            <Grid Grid.Column="1" Grid.Row="1" Margin ="10 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+            </Grid>
+
+            <!--Card-->
+            <!--:infoCard Grid.Column="0" Title="Sample Title" SubTitle="Sample Subtitle" Amount="3" Image="/images/tags.png"/-->
+
+        </Grid>
+    </Border>
+</Window>
